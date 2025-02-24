@@ -113,14 +113,12 @@ class SLCGF(torch.nn.Module):
         alpha = 0.5
         G = torch.eye(G.shape[0]).cuda(3) * alpha + G * (1 - alpha)
         return G
-    # 更新目标编码器参数
     @torch.no_grad()
     def _update_target_branch(self, momentum):
         for i in range(self.n_views):
             for param_o, param_t in zip(self.online_encoder[i].parameters(), self.target_encoder[i].parameters()):
                 param_t.data = param_t.data * momentum + param_o.data * (1 - momentum)
 
-    # @torch.no_grad()
     def extract_feature(self, data):
 
         z = [self.target_encoder[i](data[i]) for i in range(self.n_views)]
