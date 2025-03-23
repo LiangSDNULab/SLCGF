@@ -33,7 +33,7 @@ def normalization_v2(input, unitNorm=True):
 def load_cancer_data(CancerName):
     RNASeq_dataframe = pd.read_csv('../cancerdata/'+CancerName+'/'+CancerName+'exp.csv')
     RNASeq_names = RNASeq_dataframe.iloc[:, 0].tolist()
-    RNASeq_dataframe = RNASeq_dataframe.iloc[:, 1:]  # 去掉第一列
+    RNASeq_dataframe = RNASeq_dataframe.iloc[:, 1:]
     miRNA_dataframe = pd.read_csv('../cancerdata/'+CancerName+'/'+CancerName+'mirna.csv')
     miRNA_dataframe = miRNA_dataframe.iloc[:, 1:]
     clinical_dataframe = pd.read_csv('../cancerdata/'+CancerName+'/'+CancerName+'_survival.csv')
