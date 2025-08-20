@@ -12,7 +12,7 @@ from torch.utils.data import Subset, DataLoader
 
 from model import SLCGF
 import utils
-from data_loda import CancerDataset
+from dataloda import CancerDataset
 warnings.filterwarnings("ignore")
 def get_args_parser():
 
@@ -201,5 +201,6 @@ if __name__ == '__main__':
                 Path(args.output_dir).mkdir(parents=True, exist_ok=True)
 
                 main(args,temperature,step)
+
 
 
